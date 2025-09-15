@@ -1,3 +1,4 @@
+import 'package:coba/first_pagfe.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -8,74 +9,31 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Alligment',
+      title: 'Row and Column',
       home: Scaffold(
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: EdgeInsets.only(top: 20),
-                child: Text(
-                  'Malang',
-                  style: TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
-                ),
-              ),
-              SizedBox(height: 150),
-              Padding(
-                padding: EdgeInsets.only(top: 20),
-                child: Text(
-                  '29\u00B0',
-                  style: TextStyle(fontSize: 100, fontWeight: FontWeight.bold),
-                ),
-              ),
-              SizedBox(height: 200),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Column(
-                    children: [
-                      Text('Minggu', style: TextStyle(fontSize: 20)),
-                      Ikon(icon: Icons.sunny),
-                      Text('25\u00B0C', style: TextStyle(fontSize: 20)),
-                    ],
-                  ),
-                  SizedBox(width: 20),
-                  Column(
-                    children: [
-                      Text('Senin', style: TextStyle(fontSize: 20)),
-                      Ikon(icon: Icons.cloudy_snowing),
-                      Text('0\u00B0C', style: TextStyle(fontSize: 20)),
-                    ],
-                  ),
-                  SizedBox(width: 20),
-                  Column(
-                    children: [
-                      Text('Selasa', style: TextStyle(fontSize: 20)),
-                      Ikon(icon: Icons.cloud),
-                      Text('20\u00B0C', style: TextStyle(fontSize: 20)),
-                    ],
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
+        appBar: AppBar(title: Text('Row and Column')),
+        body: FirstPagfe(),
       ),
     );
   }
 }
 
-class Ikon extends StatelessWidget {
-  final IconData icon;
-  const Ikon({Key? key, required this.icon}) : super(key: key);
+class KotakBiruJempol extends StatelessWidget {
+  final Color color;
+
+  KotakBiruJempol({this.color = Colors.blue});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 75,
-      height: 75,
-      child: Icon(icon, color: Colors.black, size: 40),
+      width: 100,
+      height: 100,
+      decoration: BoxDecoration(
+        color: color,
+        border: Border.all(color: Colors.black, width: 2),
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Icon(Icons.favorite, color: Colors.white, size: 40),
     );
   }
 }
