@@ -8,30 +8,54 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Row and Column',
+      title: 'Alligment',
       home: Scaffold(
-        appBar: AppBar(title: Text('Row and Column')),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  KotakBiruJempol(color: Colors.blue),
-                  SizedBox(width: 16),
-                  KotakBiruJempol(color: Colors.red),
-                  SizedBox(width: 16),
-                ],
+              Padding(
+                padding: EdgeInsets.only(top: 20),
+                child: Text(
+                  'Malang',
+                  style: TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
+                ),
               ),
-              SizedBox(height: 16),
+              SizedBox(height: 150),
+              Padding(
+                padding: EdgeInsets.only(top: 20),
+                child: Text(
+                  '29\u00B0',
+                  style: TextStyle(fontSize: 100, fontWeight: FontWeight.bold),
+                ),
+              ),
+              SizedBox(height: 200),
               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
                 children: [
-                  KotakBiruJempol(color: Colors.green),
-                  SizedBox(width: 16),
-                  KotakBiruJempol(color: Colors.orange),
-                  SizedBox(width: 16),
+                  Column(
+                    children: [
+                      Text('Minggu', style: TextStyle(fontSize: 20)),
+                      Ikon(icon: Icons.sunny),
+                      Text('25\u00B0C', style: TextStyle(fontSize: 20)),
+                    ],
+                  ),
+                  SizedBox(width: 20),
+                  Column(
+                    children: [
+                      Text('Senin', style: TextStyle(fontSize: 20)),
+                      Ikon(icon: Icons.cloudy_snowing),
+                      Text('0\u00B0C', style: TextStyle(fontSize: 20)),
+                    ],
+                  ),
+                  SizedBox(width: 20),
+                  Column(
+                    children: [
+                      Text('Selasa', style: TextStyle(fontSize: 20)),
+                      Ikon(icon: Icons.cloud),
+                      Text('20\u00B0C', style: TextStyle(fontSize: 20)),
+                    ],
+                  ),
                 ],
               ),
             ],
@@ -42,22 +66,16 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class KotakBiruJempol extends StatelessWidget {
-  final Color color;
-  
-  KotakBiruJempol({this.color = Colors.blue});
+class Ikon extends StatelessWidget {
+  final IconData icon;
+  const Ikon({Key? key, required this.icon}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 100,
-      height: 100,
-      decoration: BoxDecoration(
-        color: color,
-        border: Border.all(color: Colors.black, width: 2),
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Icon(Icons.favorite, color: Colors.white, size: 40),
+      width: 75,
+      height: 75,
+      child: Icon(icon, color: Colors.black, size: 40),
     );
   }
 }
