@@ -1,65 +1,54 @@
 import 'package:flutter/material.dart';
 
-class MusikPage extends StatelessWidget {
+class LaguPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // Tambahkan backgroundColor untuk latar belakang gelap
-      backgroundColor: Colors.grey[800],
+      appBar: AppBar(
+        title: const Text("Sedang memutar"),
+        centerTitle: true, // judul appbar di tengah
+      ),
       body: Center(
-        child: Text(
-          "Pemutar Musik",
-          // Ubah warna teks menjadi putih agar kontras dengan latar gelap
-          style: TextStyle(fontSize: 20, color: Colors.white),
+        child: Card(
+          elevation: 4, // sesuai ketentuan
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12), // border radius 12
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(12), // padding di dalam card
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                const Icon(
+                  Icons.album, // ikon lingkaran lagu
+                  size: 100,
+                  color: Colors.blueGrey,
+                ),
+                const SizedBox(height: 16),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const [
+                    Text(
+                      "Di sini ada judul lagu",
+                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      "Di sini ada nama artis",
+                      style: TextStyle(fontSize: 14),
+                    ),
+                    ],
+                  ),
+                  const Icon(Icons.favorite_border, color: Colors.redAccent),
+                  ],
+                ),
+              ],
+            ),
+          ),
         ),
       ),
-      bottomNavigationBar: buildControlBar(),
     );
   }
-}
-
-Widget buildControlBar() {
-  return Container(
-    padding: EdgeInsets.symmetric(horizontal: 8, vertical: 10),
-    // Ubah warna container menjadi sedikit lebih terang dari background
-    color: Colors.grey[900],
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        // Widget children tetap sama
-        Expanded(
-          child: IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.shuffle, color: Colors.white),
-          ),
-        ),
-        Expanded(
-          child: IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.skip_previous, color: Colors.white),
-          ),
-        ),
-        Flexible(
-          flex: 2,
-          fit: FlexFit.tight,
-          child: IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.play_circle_fill, color: Colors.white, size: 70),
-          ),
-        ),
-        Expanded(
-          child: IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.skip_next, color: Colors.white),
-          ),
-        ),
-        Expanded(
-          child: IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.repeat, color: Colors.white),
-          ),
-        ),
-      ],
-    ),
-  );
 }
