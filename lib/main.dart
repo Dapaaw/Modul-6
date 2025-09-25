@@ -101,7 +101,6 @@ class _MyHomePageState extends State<MyHomePage> {
     _ambilData();
   }
 
-  // Method untuk request data ke server dengan API FreeToGame
   Future _ambilData() async {
     try {
       final response = await http.get(
@@ -112,7 +111,6 @@ class _MyHomePageState extends State<MyHomePage> {
         final data = jsonDecode(response.body);
 
         setState(() {
-          // Simpan hanya 10 data pertama dari API ke List
           dataBerita = data.take(20).toList();
         });
       } else {
